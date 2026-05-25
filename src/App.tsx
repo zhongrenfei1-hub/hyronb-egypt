@@ -2,13 +2,13 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-const ROUTER_BASE = import.meta.env.BASE_URL.replace(/\/$/, "") || "/";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "@/i18n/LanguageContext";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 
+// HashRouter:URL 走 fragment(`/#/`),完全绕开 GitHub Pages 子路径
+// + SPA fallback 难题。一份代码三平台 0 配置。
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -17,12 +17,12 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter basename={ROUTER_BASE}>
+        <HashRouter>
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
-        </BrowserRouter>
+        </HashRouter>
       </TooltipProvider>
     </LanguageProvider>
   </QueryClientProvider>
