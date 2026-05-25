@@ -153,4 +153,5 @@
 |---|---|---|---|---|
 | 2026-05-25 | **1** | 🏛️ **地基达成**:博物馆深夜主题 + Navbar/Hero/Footer 三件套 + 三语 i18n + 三语浏览器自动化截图通过 + build 321KB | sticky navbar 在深背景上半透明,视觉对比可后续调强 | `005e8f1` `b876ae4` `7d07abf` |
 | 2026-05-25 | **1.5** | 🚀 **上线 GitHub Pages**:Actions workflow 跑通,HTTPS 200,JS/CSS 子路径加载正常 → https://zhongrenfei1-hub.github.io/hyronb-egypt/ | 后续可挂自定义域 eg.hyronb.com | `4c3630f` |
-| 2026-05-25 | **1.6** | 🩹 修两枚部署 bug:`.nojekyll` + `404.html` SPA fallback;BrowserRouter `basename=import.meta.env.BASE_URL`(否则子路径下 React Router 走 catch-all 显示 NotFound) | - | `2ee0ded` `e192f54` |
+| 2026-05-25 | **1.6** | 🩹 修两枚部署 bug:`.nojekyll` + `404.html` SPA fallback;BrowserRouter `basename=import.meta.env.BASE_URL`(否则子路径下 React Router 走 catch-all 显示 NotFound) | basename 仍有边缘缓存难题 | `2ee0ded` `e192f54` |
+| 2026-05-25 | **1.7** | 🔁 BrowserRouter → **HashRouter**,URL 走 `#/` fragment。子路径 SPA + 静态托管的行业标准方案,一份代码 GH Pages / Vercel / CF Pages 全跑通,不再依赖 base/basename/server rewrite | - | `d55c98a` |
