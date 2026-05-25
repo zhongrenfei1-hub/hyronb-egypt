@@ -1,0 +1,263 @@
+/* ============================================================
+   Hyronb Egypt — هايرونب مصر — 博物馆深夜版
+   大埃及博物馆 GEM 展厅气质 × Brutalist editorial
+   字体:Marcellus(碑铭衬线)+ EB Garamond(正文)+ Reem Kufi(阿)
+        + Noto Serif SC(中)+ Inter(metadata)
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Marcellus&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Reem+Kufi:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* ─── 博物馆深夜:午夜深炭 / 青金石 / 红玉髓 / 沙岩 ─── */
+    --background: 220 18% 8%;          /* midnight 午夜深炭(主背景) */
+    --foreground: 34 25% 88%;          /* sandstone 沙岩白(主文本) */
+    --card: 220 16% 11%;               /* 比 bg 浅一档 */
+    --card-foreground: 34 25% 88%;
+    --popover: 220 16% 11%;
+    --popover-foreground: 34 25% 88%;
+    --primary: 218 75% 42%;            /* lapis 青金石(主色) */
+    --primary-foreground: 34 30% 96%;
+    --secondary: 220 14% 14%;          /* 暗灰底 */
+    --secondary-foreground: 34 25% 88%;
+    --muted: 220 12% 16%;
+    --muted-foreground: 34 15% 65%;    /* 浅米灰副文本 */
+    --accent: 12 75% 50%;              /* carnelian 红玉髓 */
+    --accent-foreground: 34 30% 96%;
+    --destructive: 0 70% 48%;
+    --destructive-foreground: 34 30% 96%;
+    --border: 220 12% 22%;             /* hairline 细分隔线 */
+    --input: 220 12% 22%;
+    --ring: 218 75% 42%;
+    --radius: 0;                       /* 直角到底 */
+
+    /* ─── 博物馆深夜专属 tokens ─── */
+    --midnight: 220 18% 8%;
+    --midnight-soft: 220 16% 12%;
+    --lapis: 218 75% 42%;              /* 青金石主蓝 */
+    --lapis-soft: 218 60% 30%;         /* 暗青金石(背景渐变用) */
+    --carnelian: 12 75% 50%;           /* 红玉髓主红 */
+    --carnelian-soft: 12 55% 36%;
+    --sandstone: 34 25% 88%;           /* 沙岩白 */
+    --sandstone-soft: 34 18% 72%;
+    --gilt: 42 65% 52%;                /* 烫金线点缀 */
+    --rule: 220 8% 32%;                /* 分隔线 */
+    --rule-soft: 220 6% 22%;
+
+    --sidebar-background: 220 18% 8%;
+    --sidebar-foreground: 34 25% 88%;
+    --sidebar-primary: 218 75% 42%;
+    --sidebar-primary-foreground: 34 30% 96%;
+    --sidebar-accent: 220 14% 14%;
+    --sidebar-accent-foreground: 34 25% 88%;
+    --sidebar-border: 220 12% 22%;
+    --sidebar-ring: 218 75% 42%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    background-color: hsl(var(--background));
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'EB Garamond', 'Marcellus', 'Reem Kufi', 'Noto Serif SC', Georgia, serif;
+    font-weight: 400;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "kern", "liga", "calt";
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  /* 阿语:Reem Kufi 库法体 + 加大行距 */
+  [dir="rtl"] body {
+    font-family: 'Reem Kufi', 'Noto Naskh Arabic', serif;
+    line-height: 1.9;
+  }
+  ::selection {
+    background: hsl(var(--carnelian) / 0.35);
+    color: hsl(var(--sandstone));
+  }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-thumb { background: hsl(var(--rule)); }
+  ::-webkit-scrollbar-track { background: hsl(var(--midnight)); }
+}
+
+@layer utilities {
+  /* ─────────── 博物馆 utilities ─────────── */
+
+  .font-display {
+    font-family: 'Marcellus', 'EB Garamond', 'Reem Kufi', serif;
+    letter-spacing: 0.01em;
+  }
+  [dir="rtl"] .font-display {
+    font-family: 'Reem Kufi', 'Noto Naskh Arabic', serif;
+    letter-spacing: 0;
+  }
+
+  /* Chip — 顶部小标签,大写宽距字 */
+  .chip {
+    font-family: 'Inter', 'Reem Kufi', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: hsl(var(--sandstone-soft));
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .chip::before {
+    content: '';
+    display: inline-block;
+    width: 1.6rem;
+    height: 1px;
+    background: hsl(var(--gilt));
+  }
+  [dir="rtl"] .chip { letter-spacing: 0.04em; }
+
+  /* Numbering — 展品编号 */
+  .ex-no {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    color: hsl(var(--gilt));
+  }
+
+  .hair-gilt { border-top: 1px solid hsl(var(--gilt) / 0.5); }
+  .hair-rule { border-top: 1px solid hsl(var(--rule)); }
+  .hair-rule-soft { border-top: 1px solid hsl(var(--rule-soft)); }
+
+  .glyph-band {
+    font-family: 'Noto Sans Egyptian Hieroglyphs', 'Segoe UI Historic', serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.5em;
+    color: hsl(var(--lapis) / 0.4);
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .btn-brutal {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.95rem 1.6rem;
+    font-family: 'Inter', 'Reem Kufi', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    border: 1px solid hsl(var(--sandstone));
+    color: hsl(var(--sandstone));
+    background: transparent;
+    transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  .btn-brutal:hover {
+    background: hsl(var(--sandstone));
+    color: hsl(var(--midnight));
+    border-color: hsl(var(--sandstone));
+  }
+  .btn-brutal--primary {
+    background: hsl(var(--lapis));
+    border-color: hsl(var(--lapis));
+    color: hsl(var(--sandstone));
+  }
+  .btn-brutal--primary:hover {
+    background: hsl(var(--carnelian));
+    border-color: hsl(var(--carnelian));
+    color: hsl(var(--sandstone));
+  }
+  [dir="rtl"] .btn-brutal { letter-spacing: 0.02em; }
+
+  .nav-link {
+    font-family: 'Inter', 'Reem Kufi', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: hsl(var(--sandstone-soft));
+    transition: color 0.25s ease;
+    position: relative;
+  }
+  .nav-link:hover { color: hsl(var(--sandstone)); }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -8px;
+    height: 1px;
+    background: hsl(var(--gilt));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  .nav-link:hover::after { transform: scaleX(1); }
+  [dir="rtl"] .nav-link::after { transform-origin: right; }
+  [dir="rtl"] .nav-link { letter-spacing: 0.02em; }
+
+  .display-xxl {
+    font-family: 'Marcellus', 'EB Garamond', serif;
+    font-size: clamp(2.6rem, 7vw, 6rem);
+    line-height: 1.02;
+    letter-spacing: -0.015em;
+    color: hsl(var(--sandstone));
+  }
+  [dir="rtl"] .display-xxl {
+    font-family: 'Reem Kufi', serif;
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: 0;
+  }
+
+  .display-md {
+    font-family: 'Marcellus', 'EB Garamond', serif;
+    font-size: clamp(1.6rem, 3.2vw, 2.6rem);
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+    color: hsl(var(--sandstone));
+  }
+  [dir="rtl"] .display-md {
+    font-family: 'Reem Kufi', serif;
+    font-weight: 500;
+  }
+
+  .meta-text {
+    font-family: 'Inter', 'Reem Kufi', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 400;
+    line-height: 1.7;
+    color: hsl(var(--sandstone-soft));
+  }
+}
+
+/* Reveal on scroll */
+.rv {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 1s cubic-bezier(0.23, 1, 0.32, 1), transform 1s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.rv.visible { opacity: 1; transform: translateY(0); }
+.rv-s > * {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1), transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.rv-s > *.visible { opacity: 1; transform: translateY(0); }
+
+/* RTL utilities */
+@layer utilities {
+  [dir="rtl"] .rtl\:flip-x { transform: scaleX(-1); }
+  [dir="rtl"] .rtl\:text-right { text-align: right; }
+  [dir="rtl"] .rtl\:text-left { text-align: left; }
+  [dir="rtl"] .rtl\:flex-row-reverse { flex-direction: row-reverse; }
+}
