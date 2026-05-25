@@ -114,7 +114,7 @@
 | 阶段 | 主题 | 关键产出 | 完成 |
 |---|---|---|---|
 | **Round 1** | 🏛️ 地基 | fork + 主题 + 三件套 + dev pass + 首 commit | ✅ |
-| **Round 2** | 📜 About + Cross-flow | 埃及定位 + 中埃双向流程 | - |
+| **Round 2** | 📜 About + Cross-flow | 埃及定位三段 + 中埃双向流程 | ✅ |
 | **Round 3** | 🛠️ Services | 四大服务卡(LLC/身份/财税/品牌) | - |
 | **Round 4** | 🗺️ Jurisdictions | 开罗/亚历山大/SCZONE/北京网络 | - |
 | **Round 5** | 💬 Social proof | Testimonials + FAQ | - |
@@ -155,4 +155,4 @@
 | 2026-05-25 | **1.5** | 🚀 **上线 GitHub Pages**:Actions workflow 跑通,HTTPS 200,JS/CSS 子路径加载正常 → https://zhongrenfei1-hub.github.io/hyronb-egypt/ | 后续可挂自定义域 eg.hyronb.com | `4c3630f` |
 | 2026-05-25 | **1.6** | 🩹 修两枚部署 bug:`.nojekyll` + `404.html` SPA fallback;BrowserRouter `basename=import.meta.env.BASE_URL`(否则子路径下 React Router 走 catch-all 显示 NotFound) | basename 仍有边缘缓存难题 | `2ee0ded` `e192f54` |
 | 2026-05-25 | **1.7** | 🔁 BrowserRouter → **HashRouter**,URL 走 `#/` fragment。子路径 SPA + 静态托管的行业标准方案,一份代码 GH Pages / Vercel / CF Pages 全跑通,不再依赖 base/basename/server rewrite | - | `d55c98a` |
-| 2026-05-25 | **2** | 📜 **Round 2 达成**:SectionAbout(三段 SCZONE/Cairo-Alex/双语桥梁)+ SectionCrossFlow(两栏 5+5 步对照)+ i18n 扩 60 key 三语对齐 + build 333KB/gzip 108KB,本地 snapshot 验全过 | preview_screenshot 工具自身 bug 出黑图,改用 preview_snapshot 验通过 | _本次 commit_ |
+| 2026-05-25 | **2** | 📜 **Round 2 达成**:SectionAbout(三段 SCZONE/Cairo-Alex/双语桥梁)+ SectionCrossFlow(两栏 5+5 步对照)+ i18n 扩 60 key 三语对齐 + build 333KB/gzip 108KB,本地 snapshot 验全过 | preview_screenshot 工具自身 bug 出黑图,改用 preview_snapshot 验通过 | `2f3fda6` |
