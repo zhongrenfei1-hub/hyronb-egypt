@@ -93,10 +93,10 @@
 - [x] **NEED-009** dev server 跑通 + 浏览器自动化首屏截图(三语)+ build pass(321KB / gzip 103KB)
 
 ### P1 · 内容填充(Round 2-N)
-- [ ] **NEED-010** About:埃及定位三段式(SCZONE 跳板 / 中阿走廊 / 在埃中国人社区)
+- [x] **NEED-010** About:埃及定位三段式(SCZONE 跳板 / Cairo-Alex 双城 / 中阿双语桥梁)
 - [ ] **NEED-011** Services 四大块(LLC 注册 / 投资身份 / 财税合规 / 本土品牌)— 埃及口径
 - [ ] **NEED-012** Jurisdictions 区域:开罗 / 亚历山大 / SCZONE / 北京 + 本地团队
-- [ ] **NEED-013** Cross-flow:中企进埃及 vs 埃企进中国 双流程对照(两栏 grid)
+- [x] **NEED-013** Cross-flow:中企进埃及 vs 埃企进中国 双流程对照(两栏 grid 各 5 步)
 - [ ] **NEED-014** Testimonials:1-2 个中埃案例
 - [ ] **NEED-015** FAQ:常见埃及法务问题(GAFI 审批时长 / 增值税 / SCZONE 优惠)
 - [ ] **NEED-016** CTA + Contact
@@ -155,3 +155,4 @@
 | 2026-05-25 | **1.5** | 🚀 **上线 GitHub Pages**:Actions workflow 跑通,HTTPS 200,JS/CSS 子路径加载正常 → https://zhongrenfei1-hub.github.io/hyronb-egypt/ | 后续可挂自定义域 eg.hyronb.com | `4c3630f` |
 | 2026-05-25 | **1.6** | 🩹 修两枚部署 bug:`.nojekyll` + `404.html` SPA fallback;BrowserRouter `basename=import.meta.env.BASE_URL`(否则子路径下 React Router 走 catch-all 显示 NotFound) | basename 仍有边缘缓存难题 | `2ee0ded` `e192f54` |
 | 2026-05-25 | **1.7** | 🔁 BrowserRouter → **HashRouter**,URL 走 `#/` fragment。子路径 SPA + 静态托管的行业标准方案,一份代码 GH Pages / Vercel / CF Pages 全跑通,不再依赖 base/basename/server rewrite | - | `d55c98a` |
+| 2026-05-25 | **2** | 📜 **Round 2 达成**:SectionAbout(三段 SCZONE/Cairo-Alex/双语桥梁)+ SectionCrossFlow(两栏 5+5 步对照)+ i18n 扩 60 key 三语对齐 + build 333KB/gzip 108KB,本地 snapshot 验全过 | preview_screenshot 工具自身 bug 出黑图,改用 preview_snapshot 验通过 | _本次 commit_ |
