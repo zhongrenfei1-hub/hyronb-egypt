@@ -153,3 +153,4 @@
 |---|---|---|---|---|
 | 2026-05-25 | **1** | 🏛️ **地基达成**:博物馆深夜主题 + Navbar/Hero/Footer 三件套 + 三语 i18n + 三语浏览器自动化截图通过 + build 321KB | sticky navbar 在深背景上半透明,视觉对比可后续调强 | `005e8f1` `b876ae4` `7d07abf` |
 | 2026-05-25 | **1.5** | 🚀 **上线 GitHub Pages**:Actions workflow 跑通,HTTPS 200,JS/CSS 子路径加载正常 → https://zhongrenfei1-hub.github.io/hyronb-egypt/ | 后续可挂自定义域 eg.hyronb.com | `4c3630f` |
+| 2026-05-25 | **1.6** | 🩹 修两枚部署 bug:`.nojekyll` + `404.html` SPA fallback;BrowserRouter `basename=import.meta.env.BASE_URL`(否则子路径下 React Router 走 catch-all 显示 NotFound) | - | `2ee0ded` `e192f54` |
